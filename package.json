@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-project",
+  "version": "1.0.0",
+  "description": "nodejs-projeck",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "rr",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/storage-blob": "^12.26.0",
+    "@hapi/hapi": "^21.4.0",
+    "amqplib": "^0.10.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
