@@ -1,11 +1,24 @@
-import * as blobStorageClient from "./storage.js"
+import * as handler from "../handler/index.js"
 
-export const blobStoragePlugin = {
-    name: "storagePlugin",
+export const routes = {
+    name: "routes",
     version: "1.0.0",
-    register: async(server) => {
-        console.log("Registering blobStoragePlugin...")
-
-        server.decorate("server", "blobStorageClient", blobStorageClient)
+    register: async (server) => {
+        console.log("Registering routesPlugin...")
+        server.route({
+            method: "GET",
+            path: "/api/contacts",
+            handler: handler.handler
+            // (request, h) => {
+            //     return { message: "Test" }
+            // }
+        })
+        server.route({
+            method: "*",
+            path: "/{any*}",
+            handler: (request, h) => {
+                return h.response("Page not found").code(404);
+            },
+        });
     }
 }
